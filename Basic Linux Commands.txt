@@ -1,0 +1,49 @@
+BASIC LINUX COMMANDS WITH DESCRIPTION
+
+1. ls
+   Description: Lists all files and directories in the current directory.
+
+2. cd
+   Description: Changes the current working directory.
+   Example: cd Documents
+
+3. pwd
+   Description: Displays the present working directory.
+
+4. mkdir
+   Description: Creates a new directory.
+   Example: mkdir project
+
+5. rmdir
+   Description: Removes an empty directory.
+
+6. rm
+   Description: Deletes files or directories.
+   Example: rm file.txt
+
+7. cp
+   Description: Copies files or directories from one location to another.
+   Example: cp file1.txt file2.txt
+
+8. mv
+   Description: Moves or renames files and directories.
+   Example: mv file.txt Documents/
+
+9. cat
+   Description: Displays the contents of a file on the terminal.
+   Example: cat file.txt
+
+10. touch
+    Description: Creates an empty file or updates the timestamp of an existing file.
+    Example: touch newfile.txt
+
+11. grep
+    Description: Searches for a specific pattern in a file.
+    Example: grep "hello" file.txt
+
+12. chmod
+    Description: Changes file permissions.
+    Example: chmod 755 script.sh
+
+---
+

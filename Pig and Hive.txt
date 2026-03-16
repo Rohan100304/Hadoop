@@ -1,0 +1,104 @@
+PIG AND HIVE QUERIES ON A SAMPLE DATASET
+
+Sample Dataset: students.csv
+
+id,name,age,department,marks
+1,Rohan,21,CS,85
+2,Gagan,22,IT,78
+3,Sunil,21,CS,90
+4,Rekha,31,ECE,70
+5,Anitha,22,IT,88
+
+---
+
+PIG QUERIES
+
+1. Load the dataset
+
+students = LOAD 'students.csv'
+USING PigStorage(',')
+AS (id:int, name:chararray, age:int, department:chararray, marks:int);
+
+Explanation:
+This command loads the dataset from the CSV file into a Pig relation named "students" and defines the schema.
+
+2. Display the data
+
+DUMP students;
+
+Explanation:
+The DUMP command prints the contents of the relation on the screen.
+
+3. Filter students with marks greater than 80
+
+high_marks = FILTER students BY marks > 80;
+
+Explanation:
+This query filters and stores only those students whose marks are greater than 80.
+
+4. Group students by department
+
+grouped_students = GROUP students BY department;
+
+Explanation:
+This groups the dataset based on the department field.
+
+5. Count number of students in each department
+
+dept_count = FOREACH grouped_students GENERATE group, COUNT(students);
+
+Explanation:
+FOREACH iterates through each group and COUNT calculates the number of students in each department.
+
+---
+
+HIVE QUERIES
+
+1. Create table
+
+CREATE TABLE students (
+id INT,
+name STRING,
+age INT,
+department STRING,
+marks INT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
+
+Explanation:
+This command creates a Hive table named students with the specified columns and data types.
+
+2. Load data into the table
+
+LOAD DATA LOCAL INPATH 'students.csv'
+INTO TABLE students;
+
+Explanation:
+This loads the CSV dataset into the Hive table.
+
+3. Display all records
+
+SELECT * FROM students;
+
+Explanation:
+Retrieves and displays all records from the table.
+
+4. Find students with marks greater than 80
+
+SELECT name, marks
+FROM students
+WHERE marks > 80;
+
+Explanation:
+Filters the dataset and returns students who scored more than 80 marks.
+
+5. Count students in each department
+
+SELECT department, COUNT(*)
+FROM students
+GROUP BY department;
+
+Explanation:
+Groups the data by department and counts the number of students in each department.
